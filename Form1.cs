@@ -90,11 +90,11 @@ namespace CRUDMahasiswaADO
                 while (reader.Read())
                 {
                     dataGridView1.Rows.Add(
-                        reader["NIM"].ToString(), 
-                        reader["Nama"].ToString(), 
-                        reader["JenisKelamin"].ToString(), 
-                        Convert.ToDateTime(reader["TanggalLahir"]).ToShortDateString(), 
-                        reader["Alamat"].ToString(), 
+                        reader["NIM"].ToString(),
+                        reader["Nama"].ToString(),
+                        reader["JenisKelamin"].ToString(),
+                        Convert.ToDateTime(reader["TanggalLahir"]).ToShortDateString(),
+                        reader["Alamat"].ToString(),
                         reader["KodeProdi"].ToString()
                         );
                 }
@@ -104,5 +104,43 @@ namespace CRUDMahasiswaADO
             {
                 MessageBox.Show("Gagal menampilkan data: " + ex.Message);
             }
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                if (txtNIM.Text == "")
+                {
+                    MessageBox.Show("NIM harus diisi");
+                    txtNIM.Focus();
+                    return;
+                }
+                if (txtNama.Text == "")
+                {
+                    MessageBox.Show("Nama harus diisi");
+                    txtNama.Focus();
+                    return;
+                }
+
+                if (cmbJK.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Jenis Kelamin harus dipilih");
+                    cmbJK.Focus();
+                    return;
+                }
+
+                if (txtKodeProdi.Text == "")
+                {
+                    MessageBox.Show("Kode Prodi harus diisi");
+                    txtKodeProdi.Focus();
+                    return;
+                }
+            }
+        }
     }
 }
