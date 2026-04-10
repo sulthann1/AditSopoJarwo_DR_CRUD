@@ -150,6 +150,7 @@
             this.btnConnect.TabIndex = 11;
             this.btnConnect.Text = "Membuka Koneksi";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
             // 
             // btnLoad
             // 
@@ -159,6 +160,7 @@
             this.btnLoad.TabIndex = 12;
             this.btnLoad.Text = "Menampilkan Data";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // button3
             // 
@@ -178,6 +180,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "Mengubah Data";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -187,6 +190,7 @@
             this.button5.TabIndex = 15;
             this.button5.Text = "Menghapus Data";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // txtKodeProdi
             // 

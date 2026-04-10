@@ -50,7 +50,72 @@ namespace CRUDMahasiswaADO
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                if (txtNIM.Text == "")
+                {
+                    MessageBox.Show("NIM harus diisi");
+                    txtNIM.Focus();
+                    return;
+                }
+                if (txtNama.Text == "")
+                {
+                    MessageBox.Show("Nama harus diisi");
+                    txtNama.Focus();
+                    return;
+                }
 
+                if (cmbJK.Text == "")
+                {
+                    MessageBox.Show("Jenis Kelamin harus dipilih");
+                    cmbJK.Focus();
+                    return;
+                }
+
+                if (txtKodeProdi.Text == "")
+                {
+                    MessageBox.Show("Kode Prodi harus diisi");
+                    txtKodeProdi.Focus();
+                    return;
+                }
+
+                string query = "INSERT INTO Mahasiswa " +
+                    "(NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi) " +
+                    "VALUES " +
+                    "(@NIM, @Nama, @JK, @TanggalLahir, @Alamat, @KodeProdi)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JK", cmbJK.Text);
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+                cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
+
+                int result = cmd.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Data mahasiswa berhasil ditambahkan");
+                    ClearForm();
+                    btnLoad.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Gagal menambahkan data");
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
+            }
         }
 
         private void ConnectDatabase()
@@ -74,7 +139,40 @@ namespace CRUDMahasiswaADO
             ConnectDatabase();
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+
+       
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                txtNIM.Text = row.Cells["NIM"].Value.ToString();
+                txtNama.Text = row.Cells["Nama"].Value.ToString();
+                cmbJK.Text = row.Cells["Jenis Kelamin"].Value.ToString();
+                dtpTanggalLahir.Value = Convert.ToDateTime(row.Cells["Tanggal Lahir"].Value);
+                txtAlamat.Text = row.Cells["Alamat"].Value.ToString();
+                txtKodeProdi.Text = row.Cells["Kode Prodi"].Value.ToString();
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtNIM.Clear();
+            txtNama.Clear();
+            cmbJK.SelectedIndex = -1;
+            txtAlamat.Clear();
+            txtKodeProdi.Clear();
+            dtpTanggalLahir.Value = DateTime.Now;
+            txtNIM.Focus();
+        }
+
+        private void btnConnect_Click_1(object sender, EventArgs e)
+        {
+            ConnectDatabase();
+        }
+
+        private void btnLoad_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -114,79 +212,10 @@ namespace CRUDMahasiswaADO
             {
                 MessageBox.Show("Gagal menampilkan data: " + ex.Message);
             }
-        }
+        
+    }
 
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (conn.State == System.Data.ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                if (txtNIM.Text == "")
-                {
-                    MessageBox.Show("NIM harus diisi");
-                    txtNIM.Focus();
-                    return;
-                }
-                if (txtNama.Text == "")
-                {
-                    MessageBox.Show("Nama harus diisi");
-                    txtNama.Focus();
-                    return;
-                }
-
-                if (cmbJK.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Jenis Kelamin harus dipilih");
-                    cmbJK.Focus();
-                    return;
-                }
-
-                if (txtKodeProdi.Text == "")
-                {
-                    MessageBox.Show("Kode Prodi harus diisi");
-                    txtKodeProdi.Focus();
-                    return;
-                }
-
-                string query = "INSERT INTO Mahasiswa " +
-                    "(NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi) " +
-                    "VALUES " +
-                    "(@NIM, @Nama, @JenisKelamin, @TanggalLahir, @Alamat, @KodeProdi)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
-                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
-                cmd.Parameters.AddWithValue("@JK", cmbJK.Text);
-                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTanggalLahir.Value.Date);
-                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
-                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
-                cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Data mahasiswa berhasil ditambahkan");
-                    ClearForm();
-                    btnLoad.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Gagal menambahkan data");
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
-            }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             try
             {
@@ -196,7 +225,7 @@ namespace CRUDMahasiswaADO
                 }
                 string query = "UPDATE Mahasiswa" +
                                 " SET Nama = @Nama," +
-                                " JenisKelamin = @JenisKelamin," +
+                                " JenisKelamin = @JK," +
                                 " TanggalLahir = @TanggalLahir," +
                                 " Alamat = @Alamat," +
                                 " KodeProdi = @KodeProdi " +
@@ -230,7 +259,7 @@ namespace CRUDMahasiswaADO
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -268,32 +297,6 @@ namespace CRUDMahasiswaADO
                 MessageBox.Show("Terjadi Kesalahan: " + ex.Message);
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                txtNIM.Text = row.Cells["NIM"].Value.ToString();
-                txtNama.Text = row.Cells["Nama"].Value.ToString();
-                cmbJK.Text = row.Cells["Jenis Kelamin"].Value.ToString();
-                dtpTanggalLahir.Value = Convert.ToDateTime(row.Cells["Tanggal Lahir"].Value);
-                txtAlamat.Text = row.Cells["Alamat"].Value.ToString();
-                txtKodeProdi.Text = row.Cells["Kode Prodi"].Value.ToString();
-            }
-        }
-
-        private void ClearForm()
-        {
-            txtNIM.Clear();
-            txtNama.Clear();
-            cmbJK.SelectedIndex = -1;
-            txtAlamat.Clear();
-            txtKodeProdi.Clear();
-            dtpTanggalLahir.Value = DateTime.Now;
-            txtNIM.Focus();
-        }
-
     }
 
 }
