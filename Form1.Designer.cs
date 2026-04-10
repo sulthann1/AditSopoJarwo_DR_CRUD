@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNIM = new System.Windows.Forms.TextBox();
+            this.dtpTanggalLahir = new System.Windows.Forms.DateTimePicker();
+            this.txtAlamat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNama = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbJK = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtKodeProdi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,26 +58,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "NIM";
             // 
-            // textBox1
+            // txtNIM
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtNIM.Location = new System.Drawing.Point(139, 49);
+            this.txtNIM.Name = "txtNIM";
+            this.txtNIM.Size = new System.Drawing.Size(200, 22);
+            this.txtNIM.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpTanggalLahir
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(139, 135);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dtpTanggalLahir.Location = new System.Drawing.Point(139, 135);
+            this.dtpTanggalLahir.Name = "dtpTanggalLahir";
+            this.dtpTanggalLahir.Size = new System.Drawing.Size(200, 22);
+            this.dtpTanggalLahir.TabIndex = 2;
             // 
-            // textBox2
+            // txtAlamat
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 163);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtAlamat.Location = new System.Drawing.Point(139, 163);
+            this.txtAlamat.Name = "txtAlamat";
+            this.txtAlamat.Size = new System.Drawing.Size(200, 22);
+            this.txtAlamat.TabIndex = 3;
             // 
             // label2
             // 
@@ -88,13 +88,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Nama";
             // 
-            // textBox3
+            // txtNama
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtNama.Location = new System.Drawing.Point(139, 77);
+            this.txtNama.Name = "txtNama";
+            this.txtNama.Size = new System.Drawing.Size(200, 22);
+            this.txtNama.TabIndex = 5;
+            this.txtNama.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -105,13 +105,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Jenis Kelamin";
             // 
-            // comboBox1
+            // cmbJK
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 7;
+            this.cmbJK.FormattingEnabled = true;
+            this.cmbJK.Location = new System.Drawing.Point(139, 105);
+            this.cmbJK.Name = "cmbJK";
+            this.cmbJK.Size = new System.Drawing.Size(200, 24);
+            this.cmbJK.TabIndex = 7;
             // 
             // label4
             // 
@@ -142,23 +142,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(540, 150);
             this.dataGridView1.TabIndex = 10;
             // 
-            // button1
+            // btnConnect
             // 
-            this.button1.Location = new System.Drawing.Point(434, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Membuka Koneksi";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConnect.Location = new System.Drawing.Point(434, 52);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(138, 23);
+            this.btnConnect.TabIndex = 11;
+            this.btnConnect.Text = "Membuka Koneksi";
+            this.btnConnect.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnLoad
             // 
-            this.button2.Location = new System.Drawing.Point(434, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Menampilkan Data";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLoad.Location = new System.Drawing.Point(434, 83);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(138, 23);
+            this.btnLoad.TabIndex = 12;
+            this.btnLoad.Text = "Menampilkan Data";
+            this.btnLoad.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -188,12 +188,12 @@
             this.button5.Text = "Menghapus Data";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtKodeProdi
             // 
-            this.textBox4.Location = new System.Drawing.Point(139, 207);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 16;
+            this.txtKodeProdi.Location = new System.Drawing.Point(139, 207);
+            this.txtKodeProdi.Name = "txtKodeProdi";
+            this.txtKodeProdi.Size = new System.Drawing.Size(200, 22);
+            this.txtKodeProdi.TabIndex = 16;
             // 
             // label6
             // 
@@ -210,22 +210,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtKodeProdi);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbJK);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAlamat);
+            this.Controls.Add(this.dtpTanggalLahir);
+            this.Controls.Add(this.txtNIM);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "FormMahasiswa";
@@ -239,22 +239,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNIM;
+        private System.Windows.Forms.DateTimePicker dtpTanggalLahir;
+        private System.Windows.Forms.TextBox txtAlamat;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbJK;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtKodeProdi;
         private System.Windows.Forms.Label label6;
     }
 }
